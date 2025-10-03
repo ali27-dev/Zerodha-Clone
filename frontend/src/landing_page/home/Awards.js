@@ -2,8 +2,8 @@ import React from "react";
 
 function Awards() {
   return (
-    <div className="container mt-5 mb-5">
-      <div className="row">
+    <div className="container mt-5">
+      <div className="row ">
         {/* left-image-section-start */}
         <div className="col-6 p-5">
           <img src="Assets/images/largestBroker.svg" alt="" />
@@ -11,7 +11,7 @@ function Awards() {
         {/* left-image-section-end */}
 
         {/* Right-Text-section-start */}
-        <div className="col-6 p-5 mb-5">
+        <div className="col-6 p-5">
           <h1>Largest stock broker in Pakistan</h1>
           <p className="mb-5">
             2+ million Zerodha clients contribute to over 15% of all retail

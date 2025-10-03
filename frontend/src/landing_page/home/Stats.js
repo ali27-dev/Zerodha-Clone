@@ -2,16 +2,16 @@ import React from "react";
 
 function Stats() {
   return (
-    <div className="container mt-5 p-3">
-      <div className="row p-5">
+    <div className="container  p-3">
+      <div className="row">
         {/* Left-Text-section-start */}
-        <div className="col-6 ">
-          <h1 className="mb-5 fs-2">Trust with confidence</h1>
+        <div className="col-6 p-5">
+          <h1 className="mb-2 fs-2">Trust with confidence</h1>
           {/* Short-description-1 */}
           <h2 className="fs-4">Customer-first always</h2>
           <p className="text-muted">
-            That's why 1.3+ crore customers trust Zerodha with RS:3.5+ lakh
-            crores worth of equity investments.
+            That's why 1.3+ crore customers trust Zerodha with ₨3.5+ lakh crores
+            worth of equity investments.
           </p>
           {/* Short-description-2 */}
           <h2 className="fs-4">No spam or gimmicks</h2>
@@ -36,14 +36,14 @@ function Stats() {
         {/* Left-Text-section-end */}
 
         {/* Right-Image-section-start */}
-        <div className="col-6 ">
+        <div className="col-6 p-5">
           <img
             src="Assets/images/ecosystem.png"
             alt=""
             style={{ width: "90%" }}
           />
           {/* Icons */}
-          <div className="text-center">
+          <div className="text-center mt-4">
             <a href="" className="mx-5" style={{ textDecoration: "none" }}>
               Explore our products <i class="fa-solid fa-arrow-right-long"></i>
             </a>
