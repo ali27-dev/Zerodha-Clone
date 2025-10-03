@@ -6,6 +6,7 @@ import Pricing from "./Pricing";
 import Stats from "./Stats";
 import OpenAccount from "../OpenAccount";
 import Footer from "../Footer";
+import Education from "./Education";
 
 function HomePage() {
   return (
@@ -15,6 +16,7 @@ function HomePage() {
       <Awards />
       <Stats />
       <Pricing />
+      <Education />
       <OpenAccount />
       <Footer />
     </>

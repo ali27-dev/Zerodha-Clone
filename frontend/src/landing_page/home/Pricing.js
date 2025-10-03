@@ -22,7 +22,7 @@ function Pricing() {
         {/* center-Empty-section-end */}
 
         {/* Right-Boxes-section-start */}
-        <div className="col-6">
+        <div className="col-6 mb-5">
           <div className="row text-center ">
             <div className="col border p-3">
               <h1 className="mb-3">₨0</h1>
