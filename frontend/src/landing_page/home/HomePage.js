@@ -13,8 +13,8 @@ function HomePage() {
       <Navbar />
       <Hero />
       <Awards />
-      <Pricing />
       <Stats />
+      <Pricing />
       <OpenAccount />
       <Footer />
     </>
