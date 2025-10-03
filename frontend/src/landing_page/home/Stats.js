@@ -45,10 +45,10 @@ function Stats() {
           {/* Icons */}
           <div className="text-center mt-4">
             <a href="" className="mx-5" style={{ textDecoration: "none" }}>
-              Explore our products <i class="fa-solid fa-arrow-right-long"></i>
+              Explore our products <i className="ri-arrow-right-long-line"></i>
             </a>
             <a href="" style={{ textDecoration: "none" }}>
-              Try kite demo <i class="fa-solid fa-arrow-right-long"></i>
+              Try kite demo <i className="ri-arrow-right-long-line"></i>
             </a>
           </div>
         </div>

@@ -15,3 +15,7 @@ code {
 .nav-link {
   margin-left: 30px;
 }
+.footer-link {
+  display: block;
+  margin-bottom: 1rem;
+}

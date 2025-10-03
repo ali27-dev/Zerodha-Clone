@@ -23,7 +23,7 @@ function Education() {
             covering everything from the basics to advanced trading.
           </p>
           <a href="" style={{ textDecoration: "none" }}>
-            Versity <i class="fa-solid fa-arrow-right-long"></i>
+            Versity <i className="ri-arrow-right-long-line"></i>
           </a>
 
           <p className="mt-5">
@@ -31,7 +31,7 @@ function Education() {
             Pakistan for all your market related queries.
           </p>
           <a href="" style={{ textDecoration: "none" }}>
-            TradingQ&A<i class="fa-solid fa-arrow-right-long"></i>
+            TradingQ&A <i className="ri-arrow-right-long-line"></i>
           </a>
         </div>
         {/* Right-Text-section-end */}
