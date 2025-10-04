@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Team() {
   return (
@@ -34,33 +35,45 @@ function Team() {
           style={{ lineHeight: "1.5", fontSize: "1rem" }}
         >
           <p>
-            Nithin bootstrapped and founded Zerodha in 2010 to overcome the
-            hurdles he faced during his decade long stint as a trader. Today,
-            Zerodha has changed the landscape of the Indian broking industry.
+            I’m Abid Ali, a passionate MERN Stack Developer with a strong
+            command of JavaScript and a growing expertise in Artificial
+            Intelligence integration for modern web applications. I specialize
+            in building fast, scalable, and user-focused digital experiences
+            using MongoDB, Express.js, React.js, and Node.js.
           </p>
           <p>
-            Nithin bootstrapped and founded Zerodha in 2010 to overcome the
-            hurdles he faced during his decade long stint as a trader. Today,
-            Zerodha has changed the landscape of the Indian broking industry.
+            I have a diverse skill set that includes web development, UI/UX
+            design, and MERN-Stack programming. My expertise allows me to create
+            dynamic and responsive web applications that provide an exceptional
+            user experience.
           </p>
-          <p>
-            He is a member of the SEBI Secondary Market Advisory Committee
-            (SMAC) and the Market Data Advisory Committee (MDAC).
-          </p>
-          <p>Playing basketball is his zen.</p>
-          <p>
+          <p>I’m a sports enthusiast who loves playing and watching cricket.</p>
+          <p className="">
             Connect on{" "}
-            <a href="#" style={{ textDecoration: "none" }}>
-              Homepage
-            </a>{" "}
-            /{" "}
-            <a href="#" style={{ textDecoration: "none" }}>
-              TradingQnA
-            </a>{" "}
-            /
-            <a href="#" style={{ textDecoration: "none" }}>
-              Twitter
-            </a>
+            <Link
+              to="https://www.linkedin.com/feed/"
+              target="_blanck"
+              className="fs-4 text-muted"
+              style={{ textDecoration: "none", marginRight: "10px" }}
+            >
+              <i class="ri-linkedin-box-fill"></i>
+            </Link>
+            <Link
+              to="https://github.com/ali27-dev"
+              target="_blanck"
+              className="fs-4 text-muted"
+              style={{ textDecoration: "none", marginRight: "10px" }}
+            >
+              <i class="ri-github-fill"></i>
+            </Link>{" "}
+            <Link
+              to="https://ali27-dev-protfolio-website.netlify.app/"
+              target="_blanck"
+              className="fs-4 text-muted"
+              style={{ textDecoration: "none", marginRight: "10px" }}
+            >
+              <i class="ri-account-box-fill"></i>
+            </Link>
           </p>
         </div>
       </div>

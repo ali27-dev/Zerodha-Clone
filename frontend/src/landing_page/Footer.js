@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Footer() {
   return (
@@ -39,13 +40,14 @@ function Footer() {
             >
               <i class="ri-instagram-line"></i>
             </a>
-            <a
-              href="#"
+            <Link
+              to="https://www.linkedin.com/feed/"
+              target="_blanck"
               className="fs-4 text-muted"
               style={{ textDecoration: "none", marginRight: "10px" }}
             >
-              <i class="ri-linkedin-fill"></i>
-            </a>
+              <i class="ri-linkedin-box-fill"></i>
+            </Link>
             <a
               href="#"
               className="fs-4 text-muted"
