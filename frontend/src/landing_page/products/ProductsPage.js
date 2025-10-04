@@ -12,7 +12,6 @@ function ProductsPage() {
       <LeftSection />
       <RightSection />
       <Universe />
-      <Footer />
     </>
   );
 }

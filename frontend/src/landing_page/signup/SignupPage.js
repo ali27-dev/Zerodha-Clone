@@ -6,7 +6,6 @@ function SignupPage() {
   return (
     <>
       <Signup />
-      <Footer />
     </>
   );
 }
