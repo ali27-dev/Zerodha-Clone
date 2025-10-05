@@ -10,10 +10,10 @@ function LeftSection({
   appStore,
 }) {
   return (
-    <div className="container">
-      <div className="row mb-5  mt-5 ">
+    <div className="container mt-5">
+      <div className="row">
         {/* Left-div-start */}
-        <div className="col-6 mt-5 p-3">
+        <div className="col-6">
           <img src={imageURL} alt="" />
         </div>
         {/* Left-div-end */}
