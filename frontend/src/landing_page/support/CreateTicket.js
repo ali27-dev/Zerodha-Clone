@@ -4,7 +4,7 @@ function CreateTicket() {
   return (
     <div className="container">
       <div className="row mt-5 p-5">
-        <h1 className="">To create a ticket, select a relevant topic</h1>
+        <h1 className="fs-2">To create a ticket, select a relevant topic</h1>
       </div>
       {/* Tickets-Link-section-1-start */}
       <div className="row  p-5">

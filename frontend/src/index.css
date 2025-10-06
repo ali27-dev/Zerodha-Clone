@@ -19,3 +19,33 @@ code {
   display: block;
   margin-bottom: 1rem;
 }
+
+/* Support-section */
+#supportHero {
+  background-color: rgb(56, 126, 209);
+  color: white;
+}
+#supportHero a {
+  color: white;
+}
+#supportWrapper_top {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 150px;
+}
+#supportWrapper_bottom {
+  margin: 0 90px;
+}
+.feature {
+  padding-left: 150px;
+}
+#supportWrapper_bottom input {
+  padding: 20px 50px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  font-size: 18px;
+}
+#supportWrapper_bottom a {
+  margin-right: 20px;
+}
