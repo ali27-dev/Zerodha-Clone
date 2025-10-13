@@ -87,7 +87,7 @@ const Menu = () => {
               onClick={() => handleMenuClick(5)}
             >
               <p className={selectMenu === 5 ? activeMenuClass : menuClass}>
-                Positions
+                Apps
               </p>
             </Link>
           </li>
