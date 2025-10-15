@@ -2,13 +2,18 @@ require("dotenv").config();
 
 const express = require("express");
 const mongoose = require("mongoose");
-const { PositionsModel } = require("./model/PositionsModel");
+const bodyParser = require("body-parser");
+const cors = require("cors");
 
 const PORT = process.env.PORT || 3002;
 const url = process.env.MONGO_URL;
 
+const { PositionsModel } = require("./model/PositionsModel");
+const { HoldingsModel } = require("./model/HoldingsModel");
 const app = express();
 
+app.use(cors());
+app.use(bodyParser.json());
 // app.get("/addPositions", async (req, res) => {
 //   const temPositions = [
 //     {
@@ -49,7 +54,14 @@ const app = express();
 //   });
 //   res.send("done");
 // });
-
+app.get("/allHoldings", async (req, res) => {
+  let allHoldings = await HoldingsModel.find({});
+  res.json(allHoldings);
+});
+app.get("/allPositions", async (req, res) => {
+  let allPositions = await PositionsModel.find({});
+  res.json(allPositions);
+});
 app.listen(PORT, () => {
   console.log("App is listening at 3002");
   mongoose.connect(url);
