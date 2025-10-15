@@ -62,6 +62,7 @@ app.get("/allPositions", async (req, res) => {
   let allPositions = await PositionsModel.find({});
   res.json(allPositions);
 });
+
 app.listen(PORT, () => {
   console.log("App is listening at 3002");
   mongoose.connect(url);
