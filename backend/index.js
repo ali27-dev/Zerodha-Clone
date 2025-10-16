@@ -10,7 +10,7 @@ const url = process.env.MONGO_URL;
 
 const { PositionsModel } = require("./model/PositionsModel");
 const { HoldingsModel } = require("./model/HoldingsModel");
-const { OrderModel } = require("./model/OrdersModel");
+const { OrdersModel } = require("./model/OrdersModel");
 const app = express();
 
 app.use(cors());
@@ -65,7 +65,7 @@ app.get("/allPositions", async (req, res) => {
 });
 
 app.post("/newOrder", (req, res) => {
-  let newOrder = new OrderModel({
+  let newOrder = new OrdersModel({
     name: req.body.name,
     qty: req.body.qty,
     price: req.body.price,
