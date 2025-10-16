@@ -10,6 +10,7 @@ const url = process.env.MONGO_URL;
 
 const { PositionsModel } = require("./model/PositionsModel");
 const { HoldingsModel } = require("./model/HoldingsModel");
+const { OrderModel } = require("./model/OrdersModel");
 const app = express();
 
 app.use(cors());
@@ -61,6 +62,19 @@ app.get("/allHoldings", async (req, res) => {
 app.get("/allPositions", async (req, res) => {
   let allPositions = await PositionsModel.find({});
   res.json(allPositions);
+});
+
+app.post("/newOrder", (req, res) => {
+  let newOrder = new OrderModel({
+    name: req.body.name,
+    qty: req.body.qty,
+    price: req.body.price,
+    mode: req.body.mode,
+  });
+
+  newOrder.save();
+
+  res.send("Order Saved!");
 });
 
 app.listen(PORT, () => {

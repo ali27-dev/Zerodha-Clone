@@ -9,7 +9,8 @@ import Orders from "./Orders";
 import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
-// import { GeneralContextProvider } from "./GeneralContext";
+import BuyActionWindow from "./BuyActionWindow";
+import { GeneralContextProvider } from "./GenralContext";
 
 const Dashboard = () => {
   return (
@@ -24,9 +25,10 @@ const Dashboard = () => {
           <Route path="/apps" element={<Apps />} />
         </Routes>
       </div>
-      {/* <GeneralContextProvider> */}
-      <WatchList />
-      {/* </GeneralContextProvider> */}
+      {/* <BuyActionWindow /> */}
+      <GeneralContextProvider>
+        <WatchList />
+      </GeneralContextProvider>
     </div>
   );
 };
