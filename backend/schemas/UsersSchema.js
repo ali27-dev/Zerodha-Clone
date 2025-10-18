@@ -3,7 +3,7 @@ const { Schema } = require("mongoose");
 const UsersSchema = new Schema({
   email: {
     type: String,
-    required: [true, "Your eamil address is required"],
+    required: [true, "Your email address is required"],
     unique: true,
   },
   username: {
@@ -18,6 +18,9 @@ const UsersSchema = new Schema({
     type: Date,
     default: new Date(),
   },
+});
+UsersSchema.pre("save", async function () {
+  this.password = await bcrypt.hash(this.password, 12);
 });
 
 module.exports = { UsersSchema };

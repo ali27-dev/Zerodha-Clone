@@ -4,14 +4,30 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-
-const PORT = process.env.PORT || 3002;
-const URL = process.env.MONGO_URL;
+const authRoute = require("./Routes/AuthRoute");
+const cookieParser = require("cookie-parser");
 
 const { PositionsModel } = require("./model/PositionsModel");
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { OrdersModel } = require("./model/OrdersModel");
+
+const PORT = process.env.PORT || 3002;
+const URL = process.env.MONGO_URL;
+
 const app = express();
+
+// Middlewares
+app.use(
+  cors({
+    origin: ["http://localhost:3002"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(cookieParser());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 mongoose
   .connect(URL, {
@@ -20,16 +36,6 @@ mongoose
   })
   .then(() => console.log("Connected!"))
   .catch((err) => console.error(err));
-
-app.use(
-  cors({
-    origin: ["http://localhost:3002"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
-  })
-);
-app.use(express.json());
-app.use(bodyParser.json());
 
 // app.get("/addPositions", async (req, res) => {
 //   const temPositions = [
@@ -71,6 +77,10 @@ app.use(bodyParser.json());
 //   });
 //   res.send("done");
 // });
+
+/////// Auth Route /////
+app.use("/", authRoute);
+
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingsModel.find({});
   res.json(allHoldings);

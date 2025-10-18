@@ -1,8 +1,7 @@
-const { model } = require("mongoose");
-const bcrypt = require("bcryptjs");
+import { model } from "mongoose";
+import bcrypt from "bcryptjs";
+import UsersSchema from "../schemas/UsersSchema.js";
 
-const { UsersSchema } = require("../schemas/UsersSchema");
+const UsersModel = new model("User", UsersSchema);
 
-const UsersModel = new model("user", UsersSchema);
-
-module.exports = { UsersModel };
+export default UsersModel;
