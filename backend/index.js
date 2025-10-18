@@ -6,15 +6,31 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 
 const PORT = process.env.PORT || 3002;
-const url = process.env.MONGO_URL;
+const URL = process.env.MONGO_URL;
 
 const { PositionsModel } = require("./model/PositionsModel");
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { OrdersModel } = require("./model/OrdersModel");
 const app = express();
 
-app.use(cors());
+mongoose
+  .connect(URL, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => console.log("Connected!"))
+  .catch((err) => console.error(err));
+
+app.use(
+  cors({
+    origin: ["http://localhost:3002"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+app.use(express.json());
 app.use(bodyParser.json());
+
 // app.get("/addPositions", async (req, res) => {
 //   const temPositions = [
 //     {
@@ -79,6 +95,6 @@ app.post("/newOrder", (req, res) => {
 
 app.listen(PORT, () => {
   console.log("App is listening at 3002");
-  mongoose.connect(url);
+  mongoose.connect(URL);
   console.log("DB is Connected");
 });
