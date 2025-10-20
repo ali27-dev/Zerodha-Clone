@@ -4,17 +4,35 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const cors = require("cors");
-const authRoute = require("./Routes/AuthRoute");
 const cookieParser = require("cookie-parser");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const passportLocalMongoose = require("passport-local-mongoose");
+const authRoute = require("./Routes/AuthRoute");
+// const { Signup, Login } = require("./Controllers/AuthController");
 
 const { PositionsModel } = require("./model/PositionsModel");
 const { HoldingsModel } = require("./model/HoldingsModel");
 const { OrdersModel } = require("./model/OrdersModel");
+const User = require("./model/UsersModel");
 
 const PORT = process.env.PORT || 3002;
 const URL = process.env.MONGO_URL;
+const SECRET = process.env.SECRET;
 
 const app = express();
+
+const sessionOptions = {
+  secret: SECRET,
+  resave: false,
+  saveUninitialized: true,
+  // cookie: {
+  //   expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+  //   maxAge: 7 * 24 * 60 * 60 * 1000,
+  //   httpOnly: true,
+  // },
+};
 
 // Middlewares
 app.use(
@@ -24,10 +42,19 @@ app.use(
     credentials: true,
   })
 );
+
 app.use(cookieParser());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(session(sessionOptions));
+app.use(passport.initialize());
+app.use(passport.session());
+
+passport.use(new LocalStrategy(User.authenticate()));
+
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 mongoose
   .connect(URL, {
@@ -79,7 +106,14 @@ mongoose
 // });
 
 /////// Auth Route /////
-app.use("/", authRoute);
+app.get("/demouser", async (req, res) => {
+  let fakeUser = new User({
+    email: "demo@gmail.com",
+    username: "Demo_User",
+  });
+  let newRegistered = await User.register(fakeUser, "heeloworld");
+  res.send(newRegistered);
+});
 
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingsModel.find({});
