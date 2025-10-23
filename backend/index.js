@@ -27,11 +27,11 @@ const sessionOptions = {
   secret: SECRET,
   resave: false,
   saveUninitialized: true,
-  // cookie: {
-  //   expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
-  //   maxAge: 7 * 24 * 60 * 60 * 1000,
-  //   httpOnly: true,
-  // },
+  cookie: {
+    expires: Date.now() + 7 * 24 * 60 * 60 * 1000,
+    maxAge: 7 * 24 * 60 * 60 * 1000,
+    httpOnly: true,
+  },
 };
 
 // Middlewares
@@ -63,49 +63,53 @@ mongoose
   })
   .then(() => console.log("Connected!"))
   .catch((err) => console.error(err));
+/*
+app.get("/addPositions", async (req, res) => {
+  const temPositions = [
+    {
+      product: "CNC",
+      name: "EVEREADY",
+      qty: 2,
+      avg: 316.27,
+      price: 312.35,
+      net: "+0.58%",
+      day: "-1.24%",
+      isLoss: true,
+    },
+    {
+      product: "CNC",
+      name: "JUBLFOOD",
+      qty: 1,
+      avg: 3124.75,
+      price: 3082.65,
+      net: "+10.04%",
+      day: "-1.35%",
+      isLoss: true,
+    },
+  ];
 
-// app.get("/addPositions", async (req, res) => {
-//   const temPositions = [
-//     {
-//       product: "CNC",
-//       name: "EVEREADY",
-//       qty: 2,
-//       avg: 316.27,
-//       price: 312.35,
-//       net: "+0.58%",
-//       day: "-1.24%",
-//       isLoss: true,
-//     },
-//     {
-//       product: "CNC",
-//       name: "JUBLFOOD",
-//       qty: 1,
-//       avg: 3124.75,
-//       price: 3082.65,
-//       net: "+10.04%",
-//       day: "-1.35%",
-//       isLoss: true,
-//     },
-//   ];
+  temPositions.forEach((item) => {
+    let newPositions = new PositionsModel({
+      product: item.product,
+      name: item.name,
+      qty: item.qty,
+      avg: item.avg,
+      price: item.price,
+      net: item.net,
+      day: item.day,
+      isLoss: item.isLoss,
+    });
 
-//   temPositions.forEach((item) => {
-//     let newPositions = new PositionsModel({
-//       product: item.product,
-//       name: item.name,
-//       qty: item.qty,
-//       avg: item.avg,
-//       price: item.price,
-//       net: item.net,
-//       day: item.day,
-//       isLoss: item.isLoss,
-//     });
+    newPositions.save();
+  });
+  res.send("done");
+});
+*/
 
-//     newPositions.save();
-//   });
-//   res.send("done");
-// });
+/////// Auth-Middleware //////
+app.use("/", authRouter);
 
-/////// Auth Route /////
+/////// Demo User ////////
 app.get("/demouser", async (req, res) => {
   let fakeUser = new User({
     email: "demo@gmail.com",
@@ -114,8 +118,6 @@ app.get("/demouser", async (req, res) => {
   let newRegistered = await User.register(fakeUser, "heeloworld");
   res.send(newRegistered);
 });
-
-app.use("/", authRouter);
 
 app.get("/allHoldings", async (req, res) => {
   let allHoldings = await HoldingsModel.find({});

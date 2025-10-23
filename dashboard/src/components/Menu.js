@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import AccountDropdown from "./AccountDropdown";
 // import { Login, Signup } from "../pages";
 
 import { Link } from "react-router-dom";
@@ -94,21 +95,9 @@ const Menu = () => {
           </li>
         </ul>
         <hr />
+        {/* Account-DropDown */}
         <div className="profile" onClick={handleProfileClick}>
-          {/* <div className="avatar">ZU</div> */}
-          {/* <ul>
-            <li>
-              <Link
-                style={{ textDecoration: "none" }}
-                to="/Login"
-                onClick={() => handleMenuClick(6)}
-              >
-                <p className={selectMenu === 6 ? activeMenuClass : menuClass}>
-                  Account
-                </p>
-              </Link>
-            </li>
-          </ul> */}
+          <AccountDropdown />
         </div>
       </div>
     </div>

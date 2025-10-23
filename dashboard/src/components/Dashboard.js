@@ -10,6 +10,9 @@ import Positions from "./Positions";
 import Summary from "./Summary";
 import WatchList from "./WatchList";
 import BuyActionWindow from "./BuyActionWindow";
+import SignupForm from "./SignupForm";
+import LoginForm from "./LoginForm";
+// import AccountDropdown from "./AccountDropdown";
 import { GeneralContextProvider } from "./GenralContext";
 
 const Dashboard = () => {
@@ -23,6 +26,8 @@ const Dashboard = () => {
           <Route path="/positions" element={<Positions />} />
           <Route path="/funds" element={<Funds />} />
           <Route path="/apps" element={<Apps />} />
+          <Route path="/signup" element={<SignupForm />} />
+          <Route path="/login" element={<LoginForm />} />
         </Routes>
       </div>
       {/* <BuyActionWindow /> */}
