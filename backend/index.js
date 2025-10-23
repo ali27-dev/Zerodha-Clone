@@ -37,9 +37,9 @@ const sessionOptions = {
 // Middlewares
 app.use(
   cors({
-    origin: ["http://localhost:3002"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
-    credentials: true,
+    // origin: ["http://localhost:3002"],
+    // methods: ["GET", "POST", "PUT", "DELETE"],
+    // credentials: true,
   })
 );
 
