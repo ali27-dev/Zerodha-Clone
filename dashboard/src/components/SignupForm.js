@@ -15,10 +15,9 @@ const SignupForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:3002/api/signup",
-        formData
-      );
+      const res = await axios.post("http://localhost:3002/signup", formData, {
+        withCredentials: true,
+      });
       alert("Signup successful!");
       console.log(res.data);
     } catch (err) {

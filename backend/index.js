@@ -37,9 +37,9 @@ const sessionOptions = {
 // Middlewares
 app.use(
   cors({
-    // origin: ["http://localhost:3002"],
-    // methods: ["GET", "POST", "PUT", "DELETE"],
-    // credentials: true,
+    origin: ["http://localhost:3000"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
   })
 );
 
@@ -51,10 +51,10 @@ app.use(session(sessionOptions));
 app.use(passport.initialize());
 app.use(passport.session());
 
-// passport.use(new LocalStrategy(User.authenticate()));
+passport.use(new LocalStrategy(User.authenticate()));
 
-// passport.serializeUser(User.serializeUser());
-// passport.deserializeUser(User.deserializeUser());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 mongoose
   .connect(URL, {

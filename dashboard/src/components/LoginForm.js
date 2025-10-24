@@ -14,10 +14,7 @@ const LoginForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(
-        "http://localhost:3002/api/login",
-        credentials
-      );
+      const res = await axios.post("http://localhost:3002/login", credentials);
       alert("Login successful!");
       console.log(res.data);
     } catch (err) {
