@@ -6,13 +6,14 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import HomePage from "./landing_page/home/HomePage";
 import AboutPage from "./landing_page/about/AboutPage";
 import ProductsPage from "./landing_page/products/ProductsPage";
-import SignupPage from "./landing_page/signup/SignupPage";
+// import SignupPage from "../src/landing_page/Authen-dir/Signup.jsx";
+import SignupPage from "./landing_page/signup/SignupPage.js";
 import SupportPage from "./landing_page/support/SupportPage";
 import PricingPage from "./landing_page/pricing/PricingPage.js";
 import Navbar from "./landing_page/Navbar.js";
 import Footer from "./landing_page/Footer.js";
 import NotFound from "./landing_page/NotFound.js";
-
+// import Dashboard from "../../dashboard/src/components/Home.js";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <BrowserRouter>

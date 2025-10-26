@@ -17,7 +17,7 @@ const { OrdersModel } = require("./model/OrdersModel");
 const User = require("./model/UsersModel");
 const authRouter = require("./Routes/AuthRoute");
 
-const PORT = process.env.PORT || 3002;
+const PORT = process.env.PORT || 4000;
 const URL = process.env.MONGO_URL;
 const SECRET = process.env.SECRET;
 
@@ -51,10 +51,10 @@ app.use(session(sessionOptions));
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.use(new LocalStrategy(User.authenticate()));
+// passport.use(new LocalStrategy(User.authenticate()));
 
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
+// passport.serializeUser(User.serializeUser());
+// passport.deserializeUser(User.deserializeUser());
 
 mongoose
   .connect(URL, {
@@ -142,7 +142,7 @@ app.post("/newOrder", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log("App is listening at 3002");
+  console.log("App is listening at 4000");
   mongoose.connect(URL);
   console.log("DB is Connected");
 });
